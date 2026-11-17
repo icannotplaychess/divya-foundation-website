@@ -55,17 +55,22 @@ document.documentElement.classList.remove("no-js");
   onScroll();
   toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-  /* ---------- Mobile menu ---------- */
+  /* ---------- Mobile menu (full-screen panel #mobile-nav) ---------- */
   const toggle = $(".menu-toggle");
-  const nav = $("#site-nav");
+  const mnav = $("#mobile-nav");
   const setMenu = (open) => {
     body.classList.toggle("menu-open", open);
     toggle?.setAttribute("aria-expanded", String(open));
     toggle?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    mnav?.setAttribute("aria-hidden", String(!open));
+    if (mnav) mnav.inert = !open;
+    if (open) setTimeout(() => $("a", mnav)?.focus({ preventScroll: true }), 50);
   };
+  if (mnav) mnav.inert = true;
   toggle?.addEventListener("click", () => setMenu(!body.classList.contains("menu-open")));
-  nav?.addEventListener("click", (e) => { if (e.target.closest("a, button")) setMenu(false); });
-  window.addEventListener("resize", () => { if (window.innerWidth > 1080) setMenu(false); });
+  mnav?.addEventListener("click", (e) => { if (e.target.closest("a, button")) setMenu(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && body.classList.contains("menu-open")) { setMenu(false); toggle?.focus(); } });
+  window.addEventListener("resize", () => { if (window.innerWidth > 1080 && body.classList.contains("menu-open")) setMenu(false); });
 
   /* ---------- Reveal on scroll ---------- */
   const reveals = $$(".reveal");
