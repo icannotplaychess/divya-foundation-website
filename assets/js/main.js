@@ -22,6 +22,25 @@ document.documentElement.classList.remove("no-js");
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const body = document.body;
 
+  /* ---------- Light / dark theme ---------- */
+  const root = document.documentElement;
+  const syncToggle = () => {
+    const dark = root.getAttribute("data-theme") === "dark";
+    $$("[data-theme-toggle]").forEach((b) => { b.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode"); b.setAttribute("aria-pressed", String(dark)); });
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#00050d" : "#26300b");
+  };
+  $$("[data-theme-toggle]").forEach((b) => b.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("df-theme", next); } catch (e) {}
+    syncToggle();
+  }));
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", (e) => {
+    let saved = null; try { saved = localStorage.getItem("df-theme"); } catch (err) {}
+    if (!saved) { root.setAttribute("data-theme", e.matches ? "dark" : "light"); syncToggle(); }
+  });
+  syncToggle();
+
   /* ---------- Header: solid on scroll ---------- */
   const header = $(".site-header");
   const toTop = $(".to-top");

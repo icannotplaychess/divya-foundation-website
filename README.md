@@ -30,6 +30,12 @@ All original content and pages are kept; the UI/UX has been rebuilt in the style
 - Responsive layout, accessible markup (skip link, focus states, ARIA dialogs, reduced-motion support), SEO meta tags and schema.org NGO data.
 - No frameworks or build step — plain HTML, CSS and JavaScript.
 
+## Look & feel
+
+- **Light mode:** mossy green (#A6B143) and sky blue (#C5DAFF). The homepage opens with a glowing arch, then a globe that turns to India and zooms into Maharashtra, with glowing dots across Nashik and its rural belts (inspired by pitchless.eu).
+- **Dark mode:** a near-black, teal-glow theme (the ChessPress look). Use the moon/sun button in the header; the choice is remembered, and the site follows the device setting until then.
+- The globe is drawn live with d3 (`assets/js/globe.js`). Map data: Natural Earth via world-atlas; India state boundaries via udit-001/india-maps-data.
+
 ## Forms
 
 GitHub Pages has no server, so by default form submissions open the visitor's email app pre-filled to `divyafoundation.nsk@gmail.com`.
