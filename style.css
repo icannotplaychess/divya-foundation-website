@@ -844,3 +844,11 @@ body { transition: background .3s, color .3s; }
 :root:not([data-theme="dark"]) .input-prefix span { background: #C5DAFF; border-color: #c9dcff; color: var(--heading); }
 :root:not([data-theme="dark"]) .panel { border-color: #C5DAFF; }
 :root:not([data-theme="dark"]) .eyebrow::before { background: #7fa6ec; height: 3px; }
+
+/* Mobile menu fix: the frosted-glass blur on the scrolled header (backdrop-filter) makes the header
+   the containing block for the fixed menu panel, which trapped the menu inside the header bar.
+   Drop the blur while the menu is open so the panel covers the screen at any scroll position. */
+.menu-open .site-header, .menu-open .site-header.is-solid, .menu-open .site-header--solid {
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: var(--cream) !important; box-shadow: 0 1px 0 var(--line);
+}
+@media (max-width: 1080px) { .menu-open .nav { height: calc(100dvh - var(--header-h)); } }
