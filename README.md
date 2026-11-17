@@ -1,0 +1,49 @@
+# Divya Foundation — Website Redesign
+
+A redesigned, mobile-first version of [divyafoundation-ngo.org](https://divyafoundation-ngo.org) — the website of Divya Foundation, an NGO in Nashik working since 2006 on education, healthcare and community relief.
+
+All original content and pages are kept; the UI/UX has been rebuilt in the style of leading NGO websites (clear calls to donate, trust signals, storytelling with imagery, and fast, accessible pages).
+
+> **Note:** This is an independent redesign concept. It is not the official Divya Foundation website.
+
+## Pages
+
+| Page | File |
+|---|---|
+| Home | `index.html` |
+| Our Work | `our-work.html` |
+| Modus Operandi | `modus-operandi.html` |
+| Get Involved | `get-involved.html` |
+| Events & Recent Drives | `events.html` |
+| Gallery Album | `gallery.html` |
+| Contact | `contact.html` |
+| Site Map | `sitemap.html` |
+| 404 | `404.html` |
+
+## What's improved
+
+- **Donate everywhere:** "Support Us" popup (Full Name + Phone, same as the original) reachable from the header, footer, every page, and a sticky button on mobile. Adds phone validation and an optional cause picker.
+- **Trust signals:** Since 2006, Charity Commissioner registration, 100% transparency — shown up front.
+- **Contact page** with a real contact form and map (the original page had none).
+- **Gallery lightbox** with keyboard and swipe navigation.
+- **Events** redesigned as story cards with date, location and impact.
+- Responsive layout, accessible markup (skip link, focus states, ARIA dialogs, reduced-motion support), SEO meta tags and schema.org NGO data.
+- No frameworks or build step — plain HTML, CSS and JavaScript.
+
+## Forms
+
+GitHub Pages has no server, so by default form submissions open the visitor's email app pre-filled to `divyafoundation.nsk@gmail.com`.
+
+To receive submissions directly instead, create a free form endpoint (e.g. Formspree, Web3Forms) and paste its URL into `FORM_ENDPOINT` at the top of `assets/js/main.js`.
+
+## Running locally
+
+Open `index.html` in a browser, or run:
+
+```bash
+python3 -m http.server 8000
+```
+
+## Images
+
+Photos are the same Unsplash images used on the original site. Replace them with the foundation's own photos for the best result.
