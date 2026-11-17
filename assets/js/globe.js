@@ -11,10 +11,7 @@
   var LAND = multi(dec(GEO.land, 10)), INDIA = multi(dec(GEO.indiaRings, 100)), MH = multi(dec(GEO.mh, 100)),
       STATES = { type: 'MultiLineString', coordinates: dec(GEO.states, 10) }, GRAT = d3.geoGraticule10(), SPHERE = { type: 'Sphere' };
 
-  // Nashik (home) first, then the rural talukas and tribal belts around it — dots only, no names on the map.
-  var DOTS = [[73.79,20.00,3],[73.84,19.95,2],[73.56,19.70,1],[73.53,19.93,1],[74.00,19.85,1],[74.11,20.08,1],[73.83,20.20,1],
-    [73.50,20.26,1],[73.63,20.57,1],[74.03,20.49,1],[74.20,20.60,1],[74.53,20.55,1],[74.49,20.04,1],[74.25,20.33,1],
-    [74.66,20.31,1],[74.28,20.45,1],[73.45,20.15,1],[73.70,20.40,1],[73.95,19.62,1],[74.38,19.90,1]];
+  var NASHIK = [73.79, 20.00]; // single dot, no labels
 
   var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = 1;
   var proj = d3.geoOrthographic().clipAngle(90).precision(.35);
@@ -22,9 +19,9 @@
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var C = {}, t0 = null, DUR = 6200, DELAY = reduce ? 0 : 1100, still = null, visible = true, raf = 0;
 
-  function readColors() { var s = getComputedStyle(document.documentElement);
+  function readColors() { var s = getComputedStyle(cv);
     ['space1','space2','ocean','ocean2','land','land2','grat','border','mh','mhfill','dot','dotglow','atmo'].forEach(function (k) { C[k] = s.getPropertyValue('--g-' + k).trim(); });
-    C.dark = document.documentElement.getAttribute('data-theme') === 'dark'; }
+    C.dark = true; }
   function size() { dpr = Math.min(2, window.devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); still = null; }
   function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
@@ -58,12 +55,13 @@
     g.globalAlpha = 1;
   }
   function drawDots(g, pz, now) {
-    var da = sm(pz, .62, 1); if (da <= 0) return; var k = Math.max(.8, Math.min(1.4, W / 900));
-    DOTS.forEach(function (d, i) { var p = proj([d[0], d[1]]); if (!p) return;
-      var r = (d[2] === 3 ? 6 : d[2] === 2 ? 4 : 2.6) * k, ph = reduce ? 0 : ((now / 1700 + i * .37) % 1);
-      if (d[2] > 1 || i % 3 === 0) { g.globalAlpha = da * (1 - ph) * .75; g.strokeStyle = C.dot; g.lineWidth = 1.2; g.beginPath(); g.arc(p[0], p[1], r + ph * r * 3.4, 0, 7); g.stroke(); }
-      g.globalAlpha = da; g.save(); g.shadowColor = C.dotglow; g.shadowBlur = d[2] === 3 ? 20 : 10; g.fillStyle = C.dot;
-      g.beginPath(); g.arc(p[0], p[1], r, 0, 7); g.fill(); g.restore(); });
+    var da = sm(pz, .62, 1); if (da <= 0) return; var p = proj(NASHIK); if (!p) return;
+    var k = Math.max(.9, Math.min(1.4, W / 900)), r = 6.5 * k;
+    for (var j = 0; j < 2; j++) { var ph = reduce ? .4 : ((now / 2000 + j * .5) % 1);
+      g.globalAlpha = da * (1 - ph) * .8; g.strokeStyle = C.dot; g.lineWidth = 1.4; g.beginPath(); g.arc(p[0], p[1], r + ph * r * 5, 0, 7); g.stroke(); }
+    g.globalAlpha = da; g.save(); g.shadowColor = C.dotglow; g.shadowBlur = 26; g.fillStyle = C.dot;
+    g.beginPath(); g.arc(p[0], p[1], r, 0, 7); g.fill(); g.restore();
+    g.globalAlpha = da; g.fillStyle = '#eafffa'; g.beginPath(); g.arc(p[0], p[1], r * .38, 0, 7); g.fill();
     g.globalAlpha = 1;
   }
   function frame(now) {
@@ -82,5 +80,12 @@
   readColors(); size(); kick();
   addEventListener('resize', function () { size(); kick(); });
   new MutationObserver(function () { readColors(); still = null; kick(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  var rb = document.getElementById('replay-globe');
+  if (rb) rb.addEventListener('click', function () {
+    t0 = null; still = null;
+    var portal = document.querySelector('.hero--globe .portal');
+    if (portal && !reduce) { portal.style.animation = 'none'; void portal.offsetWidth; portal.style.animation = ''; }
+    kick();
+  });
   if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; if (visible) kick(); }).observe(cv);
 })();

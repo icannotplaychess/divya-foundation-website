@@ -32,8 +32,9 @@ All original content and pages are kept; the UI/UX has been rebuilt in the style
 
 ## Look & feel
 
-- **Light mode:** mossy green (#A6B143) and sky blue (#C5DAFF). The homepage opens with a glowing arch, then a globe that turns to India and zooms into Maharashtra, with glowing dots across Nashik and its rural belts (inspired by pitchless.eu).
-- **Dark mode:** a near-black, teal-glow theme (the ChessPress look). Use the moon/sun button in the header; the choice is remembered, and the site follows the device setting until then.
+- **Homepage animation (always dark, like pitchless.eu):** a glowing arch opens onto a globe that turns to India and zooms into Maharashtra, ending on a single glowing dot at Nashik. A Replay button plays it again.
+- **Light mode:** the rest of the site uses mossy green (#A6B143) and sky blue (#C5DAFF).
+- **Dark mode:** the whole site turns near-black with teal glow (the ChessPress look). Use the moon/sun button in the header; the choice is remembered, and the site follows the device setting until then.
 - The globe is drawn live with d3 (`assets/js/globe.js`). Map data: Natural Earth via world-atlas; India state boundaries via udit-001/india-maps-data.
 
 ## Forms
