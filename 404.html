@@ -10,8 +10,9 @@
 <meta property="og:title" content="Page not found | Divya Foundation – NGO in Nashik">
 <meta property="og:description" content="Page not found.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=1200&q=80">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiMxZjVmNGEiLz4KICA8cGF0aCBkPSJNMjQgOWMzLjYgNC4yIDUuMiA3LjQgNS4yIDEwLjJBNS4yIDUuMiAwIDAgMSAyNCAyNC40YTUuMiA1LjIgMCAwIDEtNS4yLTUuMkMxOC44IDE2LjQgMjAuNCAxMy4yIDI0IDl6IiBmaWxsPSIjZjJhNTQxIi8+CiAgPHBhdGggZD0iTTI0IDE0LjVjMS42IDIgMi4zIDMuNSAyLjMgNC44YTIuMyAyLjMgMCAwIDEtNC42IDBjMC0xLjMuNy0yLjggMi4zLTQuOHoiIGZpbGw9IiNmZmY0ZGMiLz4KICA8cGF0aCBkPSJNMTAuNSAyNi41aDI3Yy0uOCA2LjYtNi40IDExLjUtMTMuNSAxMS41cy0xMi43LTQuOS0xMy41LTExLjV6IiBmaWxsPSIjZTI3MDJiIi8+CiAgPHBhdGggZD0iTTEwLjUgMjYuNWgyNyIgc3Ryb2tlPSIjZmJmN2YwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=" type="image/svg+xml">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
@@ -652,7 +653,7 @@ p { margin: 0 0 1.1em; }
 }
 .modal__aside {
   position: relative; color: #fff; padding: 2.4rem; display: flex; flex-direction: column; justify-content: flex-end; min-height: 100%;
-  background: linear-gradient(180deg, transparent, var(--ov1)), url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80") center/cover;
+  background: linear-gradient(180deg, transparent, var(--ov1)) center/cover; background-size: cover; background-position: center;
 }
 .modal__aside h3 { color: #fff; font-size: 1.7rem; }
 .modal__aside ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; font-size: .95rem; }
@@ -894,6 +895,19 @@ body { transition: background .3s, color .3s; }
 /* Keep the header solid (no blur) while the mobile menu is open */
 body.menu-open .site-header { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: var(--cream) !important; box-shadow: 0 1px 0 var(--line); }
 
+/* ---------- Real logo, Facebook link, undated events ---------- */
+img.brand__mark { width: 46px; height: 46px; border-radius: 50%; background: #fff; object-fit: contain; padding: 2px; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+.site-footer img.brand__mark { width: 52px; height: 52px; }
+.fb-follow {
+  display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.2rem; padding: .65rem 1.1rem .65rem .75rem;
+  border-radius: 999px; border: 1px solid rgba(255,255,255,.2); font-weight: 600; font-size: .92rem; transition: .25s;
+}
+.fb-follow svg { width: 26px; height: 26px; padding: 5px; border-radius: 50%; background: #1877f2; color: #fff; flex: none; }
+.fb-follow:hover { background: #fff; color: #1877f2 !important; border-color: #fff; }
+.event__date--label { padding: .5rem .8rem; }
+.event__date--label small { font-size: .7rem; font-weight: 700; }
+.modal__aside { background-size: cover; background-position: center; }
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Divya Foundation","foundingDate":"2006-01","email":"divyafoundation.nsk@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Shri. Ganesh Row Bungalow, No. 06, Ashoka-Marg, Near Siddhivinayak Park Building, Narayan Nagar, Nashik Road","addressLocality":"Nashik","postalCode":"422011","addressRegion":"Maharashtra","addressCountry":"IN"}}</script>
 </head>
@@ -902,13 +916,7 @@ body.menu-open .site-header { backdrop-filter: none !important; -webkit-backdrop
 <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html" aria-label="Divya Foundation home">
-      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-  <circle cx="24" cy="24" r="24" fill="#1f5f4a"/>
-  <path d="M24 9c3.6 4.2 5.2 7.4 5.2 10.2A5.2 5.2 0 0 1 24 24.4a5.2 5.2 0 0 1-5.2-5.2C18.8 16.4 20.4 13.2 24 9z" fill="#f2a541"/>
-  <path d="M24 14.5c1.6 2 2.3 3.5 2.3 4.8a2.3 2.3 0 0 1-4.6 0c0-1.3.7-2.8 2.3-4.8z" fill="#fff4dc"/>
-  <path d="M10.5 26.5h27c-.8 6.6-6.4 11.5-13.5 11.5s-12.7-4.9-13.5-11.5z" fill="#e2702b"/>
-  <path d="M10.5 26.5h27" stroke="#fbf7f0" stroke-width="2" stroke-linecap="round"/>
-</svg>
+      <img class="brand__mark" src="logo-mark.png" alt="" width="44" height="44">
       <span class="brand__text"><span class="brand__name">Divya Foundation</span><span class="brand__tag">Nashik · Since 2006</span></span>
     </a>
     <nav class="nav" id="site-nav" aria-label="Main">
@@ -942,6 +950,7 @@ body.menu-open .site-header { backdrop-filter: none !important; -webkit-backdrop
   <div class="mnav__foot">
     <button class="btn" type="button" data-open-donate><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg> Donate Now</button>
     <div class="mnav__contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:divyafoundation.nsk@gmail.com">divyafoundation.nsk@gmail.com</a></div>
+    <div class="mnav__contact"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg><a href="https://www.facebook.com/divya.trust.5" target="_blank" rel="noopener">Follow us on Facebook</a></div>
   </div>
 </div>
 <main id="main">
@@ -959,22 +968,11 @@ body.menu-open .site-header { backdrop-filter: none !important; -webkit-backdrop
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html" aria-label="Divya Foundation home">
-      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-  <circle cx="24" cy="24" r="24" fill="#1f5f4a"/>
-  <path d="M24 9c3.6 4.2 5.2 7.4 5.2 10.2A5.2 5.2 0 0 1 24 24.4a5.2 5.2 0 0 1-5.2-5.2C18.8 16.4 20.4 13.2 24 9z" fill="#f2a541"/>
-  <path d="M24 14.5c1.6 2 2.3 3.5 2.3 4.8a2.3 2.3 0 0 1-4.6 0c0-1.3.7-2.8 2.3-4.8z" fill="#fff4dc"/>
-  <path d="M10.5 26.5h27c-.8 6.6-6.4 11.5-13.5 11.5s-12.7-4.9-13.5-11.5z" fill="#e2702b"/>
-  <path d="M10.5 26.5h27" stroke="#fbf7f0" stroke-width="2" stroke-linecap="round"/>
-</svg>
+      <img class="brand__mark" src="logo-mark.png" alt="" width="44" height="44">
       <span class="brand__text"><span class="brand__name">Divya Foundation</span><span class="brand__tag">Nashik · Since 2006</span></span>
     </a>
         <p>Founded in January 2006 with the motto of <em>giving back goodness to society</em>. Registered with the Charity Commissioner in February 2022.</p>
-        <div class="socials">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 2.25h3.3l-7.2 8.26 8.5 11.24h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.25 2.25H8l4.7 6.2zm-1.1 17.52h1.8L7 4.13H5.1z"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"/></svg></a>
-        </div>
+        <a class="fb-follow" href="https://www.facebook.com/divya.trust.5" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg><span>Follow us on Facebook</span></a>
       </div>
       <div>
         <h4>Explore</h4>
@@ -1001,12 +999,13 @@ body.menu-open .site-header { backdrop-filter: none !important; -webkit-backdrop
         <ul class="footer-contact">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><address>Shri. Ganesh Row Bungalow, No. 06, Ashoka-Marg, Near Siddhivinayak Park Building, Narayan Nagar, Nashik Road, Nashik – 422011</address></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:divyafoundation.nsk@gmail.com">divyafoundation.nsk@gmail.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg><a href="https://www.facebook.com/divya.trust.5" target="_blank" rel="noopener">facebook.com/divya.trust.5</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Divya Foundation. All Rights Reserved.</span>
-      <nav aria-label="Footer"><a href="sitemap.html">Site Map</a><a href="contact.html">Contact</a></nav>
+      <nav aria-label="Footer"><a href="https://www.facebook.com/divya.trust.5" target="_blank" rel="noopener">Facebook</a><a href="sitemap.html">Site Map</a><a href="contact.html">Contact</a></nav>
     </div>
   </div>
 </footer>
@@ -1015,7 +1014,7 @@ body.menu-open .site-header { backdrop-filter: none !important; -webkit-backdrop
 <div class="modal" id="support-modal" role="dialog" aria-modal="true" aria-labelledby="support-title" aria-hidden="true">
   <div class="modal__dialog">
     <button class="modal__close" type="button" aria-label="Close" data-close-modal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    <div class="modal__aside">
+    <div class="modal__aside" style="background-image:linear-gradient(180deg, transparent, var(--ov1)), url('photo-winter-blanket-donation.jpg')">
       <h3>Every rupee is accounted for.</h3>
       <ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Registered with the Charity Commissioner</li>
