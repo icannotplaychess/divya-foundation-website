@@ -37,6 +37,16 @@ All original content and pages are kept; the UI/UX has been rebuilt in the style
 - **Dark mode:** the whole site turns near-black with teal glow (the ChessPress look). Use the moon/sun button in the header; the choice is remembered, and the site follows the device setting until then.
 - The globe is drawn live with d3 (`assets/js/globe.js`). Map data: Natural Earth via world-atlas; India state boundaries via udit-001/india-maps-data.
 
+
+## Settings you can edit: `site-config.js`
+
+- **Announcement ribbon:** the strip at the top of every page. Add, edit or remove lines in `announcements`. Leave the list empty to hide the ribbon.
+- **Form destination:** paste the Google Apps Script web app URL into `formEndpoint` to save every form to a Google Sheet. See `SETUP-google-sheet.md`. While it's empty, forms open the visitor's email app instead.
+
+## Apply for Support
+
+`apply.html` is the online version of the foundation's Common Application Form for Assistance. It covers the type of assistance, applicant details, the need, the declaration, consent and the final acknowledgement. Each applicant gets an application number like `DF-261123-AB12`. If the applicant is under 18, the form asks for a parent or guardian. The printable PDF (`Divya-Foundation-Application-Form.pdf`) is linked for anyone who prefers paper.
+
 ## Forms
 
 GitHub Pages has no server, so by default form submissions open the visitor's email app pre-filled to `divyafoundation.nsk@gmail.com`.

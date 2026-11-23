@@ -6,6 +6,8 @@
 <title>Events | Divya Foundation – NGO in Nashik</title>
 <meta name="description" content="Recent drives by Divya Foundation: Diwali ration distribution, school supply drive and winter blanket donation in Nashik.">
 <meta name="theme-color" content="#26300b">
+<script src="site-config.js?v=5"></script>
+<script>(function(){try{var a=(window.DF_CONFIG||{}).announcements||[];if(a.length&&sessionStorage.getItem("df-ribbon-closed")!=="1")document.documentElement.classList.add("has-ribbon");}catch(e){}})();</script>
 <script>(function(){try{var t=localStorage.getItem("df-theme");}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta property="og:title" content="Events | Divya Foundation – NGO in Nashik">
 <meta property="og:description" content="Recent drives by Divya Foundation: Diwali ration distribution, school supply drive and winter blanket donation in Nashik.">
@@ -66,6 +68,7 @@
   --shadow-lg: 0 24px 60px rgba(38, 48, 11, 0.18);
   --container: 1200px;
   --header-h: 76px;
+  --ribbon-h: 0px;
   --ease: cubic-bezier(.2, .7, .2, 1);
 
   /* globe (light) */
@@ -185,7 +188,7 @@ p { margin: 0 0 1.1em; }
 .btn:hover svg { transform: translateX(3px); }
 .btn--green { --bg: var(--green-700); --fg: var(--btn-fg); box-shadow: 0 6px 18px var(--btn-shadow); }
 .btn--green:hover { background: var(--band); }
-.btn--ghost { --bg: transparent; --fg: var(--green-900); border-color: var(--heading); box-shadow: none; }
+.btn--ghost { --bg: transparent; --fg: var(--heading); border-color: var(--heading); box-shadow: none; }
 .btn--ghost:hover { background: var(--heading); color: var(--cream); box-shadow: none; }
 .btn--light { --bg: rgba(255,255,255,.12); --fg: #fff; border-color: rgba(255,255,255,.55); box-shadow: none; backdrop-filter: blur(6px); }
 .btn--light:hover { background: var(--card); color: var(--heading); box-shadow: none; }
@@ -259,7 +262,7 @@ p { margin: 0 0 1.1em; }
 @media (max-width: 1080px) {
   .mnav {
     display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 99;
-    padding: calc(var(--header-h) + 1rem) 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    padding: calc(var(--header-h) + var(--ribbon-h) + 1rem) 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
     background: var(--cream); overflow-y: auto; overscroll-behavior: contain;
     opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s;
   }
@@ -295,7 +298,7 @@ p { margin: 0 0 1.1em; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative; min-height: min(100svh, 880px); display: flex; align-items: flex-end;
-  color: #fff; overflow: hidden; padding: calc(var(--header-h) + 3rem) 0 clamp(3rem, 7vw, 6rem);
+  color: #fff; overflow: hidden; padding: calc(var(--header-h) + var(--ribbon-h) + 3rem) 0 clamp(3rem, 7vw, 6rem);
   background: var(--band);
 }
 .hero__media { position: absolute; inset: 0; }
@@ -330,7 +333,7 @@ p { margin: 0 0 1.1em; }
 /* Page hero (inner pages) */
 .page-hero {
   position: relative; color: #fff; overflow: hidden;
-  padding: calc(var(--header-h) + clamp(3.5rem, 8vw, 6rem)) 0 clamp(3.5rem, 7vw, 5.5rem);
+  padding: calc(var(--header-h) + var(--ribbon-h) + clamp(3.5rem, 8vw, 6rem)) 0 clamp(3.5rem, 7vw, 5.5rem);
   background: var(--band);
 }
 .page-hero__media { position: absolute; inset: 0; }
@@ -763,7 +766,7 @@ body.modal-open { overflow: hidden; }
 .event__impact svg { width: 16px; height: 16px; flex: none; }
 .event__impact { white-space: nowrap; }
 @media (max-width: 720px) {
-  .hero { min-height: auto; padding-top: calc(var(--header-h) + 7rem); padding-bottom: 5rem; }
+  .hero { min-height: auto; padding-top: calc(var(--header-h) + var(--ribbon-h) + 7rem); padding-bottom: 5rem; }
   .hero__actions .btn { flex: 1 1 auto; }
 }
 
@@ -813,7 +816,7 @@ body { transition: background .3s, color .3s; }
 }
 .replay svg { width: 15px; height: 15px; }
 .replay:hover { background: #19c3a0; color: #00130e; border-color: #19c3a0; }
-@media (max-width: 720px) { .replay { top: calc(var(--header-h) + .75rem); bottom: auto; right: 1.25rem; } }
+@media (max-width: 720px) { .replay { top: calc(var(--header-h) + var(--ribbon-h) + .75rem); bottom: auto; right: 1.25rem; } }
 .portal { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; pointer-events: none; animation: portal 1.9s .15s cubic-bezier(.65,0,.25,1) forwards; }
 .portal .arch {
   width: min(190px, 42vw); aspect-ratio: 190/360; border-radius: 999px 999px 6px 6px; border: 1px solid var(--g-arch);
@@ -822,7 +825,7 @@ body { transition: background .3s, color .3s; }
 }
 @keyframes portal { 0% { opacity: 0; transform: scale(.92); } 30% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(5); visibility: hidden; } }
 @media (max-width: 720px) {
-  .hero--globe { min-height: 92svh; padding-top: calc(var(--header-h) + 2rem); }
+  .hero--globe { min-height: 92svh; padding-top: calc(var(--header-h) + var(--ribbon-h) + 2rem); }
   .hero--globe::after { background: linear-gradient(180deg, transparent 35%, rgba(0,5,13,.8) 60%, rgba(0,5,13,.95) 100%); }
 }
 @media (prefers-reduced-motion: reduce) { .portal { display: none; } }
@@ -908,10 +911,127 @@ img.brand__mark { width: 46px; height: 46px; border-radius: 50%; background: #ff
 .event__date--label small { font-size: .7rem; font-weight: 700; }
 .modal__aside { background-size: cover; background-position: center; }
 
+
+/* ================= Announcement ribbon ================= */
+html.has-ribbon { --ribbon-h: 40px; }
+.ribbon {
+  position: fixed; inset: 0 0 auto; z-index: 101; height: var(--ribbon-h); display: flex; align-items: center;
+  background: #26300b; color: #f2f6e4; font-size: .88rem; overflow: hidden;
+}
+.ribbon[hidden] { display: none; }
+[data-theme="dark"] .ribbon { background: #050d18; color: #dcebe9; border-bottom: 1px solid #0f1e2b; }
+.site-header { top: var(--ribbon-h); }
+.ribbon__viewport { flex: 1; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.ribbon__track { display: flex; width: max-content; animation: ribbon-scroll var(--ribbon-speed, 30s) linear infinite; }
+.ribbon:hover .ribbon__track, .ribbon:focus-within .ribbon__track { animation-play-state: paused; }
+.ribbon__group { display: flex; align-items: center; flex: none; }
+.ribbon__item { display: inline-flex; align-items: center; gap: .6rem; padding: 0 1.2rem; white-space: nowrap; color: inherit; text-decoration: none; }
+a.ribbon__item:hover span { text-decoration: underline; text-underline-offset: 3px; }
+.ribbon__item b { font: 700 .7rem/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; padding: .38rem .6rem; border-radius: 999px; background: #A6B143; color: #1d2410; }
+[data-theme="dark"] .ribbon__item b { background: rgba(25,195,160,.15); color: #7fe9d2; border: 1px solid rgba(25,195,160,.4); }
+.ribbon__item i { font-style: normal; opacity: .7; }
+.ribbon__sep { color: #A6B143; font-size: .7rem; flex: none; }
+[data-theme="dark"] .ribbon__sep { color: #19c3a0; }
+.ribbon__close { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: inherit; opacity: .75; cursor: pointer; }
+.ribbon__close:hover { opacity: 1; }
+.ribbon__close svg { width: 16px; height: 16px; }
+@keyframes ribbon-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ribbon__track { animation: none; }
+  .ribbon__group[aria-hidden] { display: none; }
+  .ribbon__viewport { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+}
+@media (max-width: 1080px) { .mnav { padding-top: calc(var(--header-h) + var(--ribbon-h) + 1rem); } }
+
+/* ================= Need support band (home) + card (get involved) ================= */
+.need { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 860px) { .need { grid-template-columns: 1fr; } }
+.need__types { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+@media (max-width: 480px) { .need__types { grid-template-columns: 1fr; } }
+.need__types li { display: flex; gap: .6rem; align-items: center; padding: .85rem 1rem; border-radius: 14px; background: var(--card); border: 1px solid var(--line); font-weight: 600; color: var(--heading); font-size: .95rem; }
+.need__types svg { width: 18px; height: 18px; color: var(--green-700); flex: none; }
+:root:not([data-theme="dark"]) .need__types li { border-color: #C5DAFF; }
+.need-card { margin-top: 1.8rem; display: grid; grid-template-columns: 1.4fr auto; gap: 1.5rem 2.5rem; align-items: center; padding: clamp(1.8rem, 4vw, 2.6rem); border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+:root:not([data-theme="dark"]) .need-card { background: linear-gradient(120deg, #fff 0%, #e6efff 100%); border-color: #C5DAFF; }
+.need-card h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.need-card p { color: var(--ink-soft); margin: 0; }
+.need-card__actions { display: grid; gap: .7rem; }
+@media (max-width: 760px) { .need-card { grid-template-columns: 1fr; } }
+
+/* ================= Apply for Support page ================= */
+.apply { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
+.apply__aside { position: sticky; top: calc(var(--header-h) + var(--ribbon-h) + 1.5rem); }
+@media (max-width: 960px) { .apply { grid-template-columns: 1fr; } .apply__aside { position: static; } }
+.apply__aside h2 { font-size: 1.5rem; }
+.apply__steps { list-style: none; counter-reset: s; margin: 0 0 1.4rem; padding: 0; display: grid; gap: .9rem; }
+.apply__steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: .1rem .8rem; }
+.apply__steps li::before { content: counter(s); grid-row: span 2; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 600 .95rem var(--font-display); background: var(--green-100); color: var(--green-700); }
+.apply__steps b { color: var(--heading); }
+.apply__steps span { font-size: .9rem; color: var(--ink-soft); line-height: 1.5; }
+.apply__note { display: flex; gap: .6rem; font-size: .88rem; color: var(--ink-soft); background: var(--green-100); padding: .9rem 1rem; border-radius: 12px; line-height: 1.5; }
+.apply__note svg { width: 18px; height: 18px; flex: none; color: var(--green-700); margin-top: .15rem; }
+.apply__panel { padding: clamp(1.4rem, 4vw, 2.6rem); }
+.apply__section { border: 0; margin: 0 0 1.4rem; padding: 0 0 1.8rem; border-bottom: 1px solid var(--line); display: grid; gap: 1.1rem; min-width: 0; }
+.apply__section legend { display: flex; align-items: center; gap: .75rem; padding: 0; margin-bottom: 1.1rem; font: 600 clamp(1.25rem, 2.4vw, 1.5rem)/1.2 var(--font-display); color: var(--heading); }
+.apply__section legend span { flex: none; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font: 700 .9rem var(--font-body); background: var(--saffron); color: var(--btn-fg); }
+.form-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 700px) { .form-row--3 { grid-template-columns: 1fr; } }
+.field__hint { font-size: .82rem; color: var(--ink-soft); }
+.choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .55rem; }
+.choices > .field__error { grid-column: 1 / -1; }
+.choice { display: flex; align-items: flex-start; gap: .65rem; padding: .75rem .9rem; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; font-weight: 600; font-size: .94rem; color: var(--ink); line-height: 1.4; transition: border-color .2s, background .2s; }
+.choice input { width: 18px; height: 18px; margin: .1rem 0 0; flex: none; accent-color: var(--saffron); }
+.choice:has(input:checked) { border-color: var(--saffron); background: var(--green-100); }
+.choice:focus-within { outline: 3px solid var(--marigold); outline-offset: 2px; }
+.choice--block { font-weight: 500; }
+.field.has-error .choice, .choices.has-error .choice { border-color: #c0392b; }
+.decl { margin: 0; padding-left: 1.3rem; display: grid; gap: .55rem; font-size: .93rem; color: var(--ink-soft); line-height: 1.6; }
+.consent { display: grid; gap: .7rem; }
+.consent__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .6rem 1rem; align-items: center; padding: .9rem 1rem; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
+.consent__row p { margin: 0; font-weight: 600; color: var(--heading); font-size: .95rem; line-height: 1.45; }
+.consent__opts { display: flex; gap: .5rem; flex-wrap: wrap; }
+.consent__opts .choice { padding: .55rem .8rem; font-size: .88rem; }
+.consent__row .field__error { grid-column: 1 / -1; }
+@media (max-width: 640px) { .consent__row { grid-template-columns: 1fr; } }
+.apply__muted { color: var(--ink-soft); font-size: .93rem; margin: 0; }
+.apply__muted.small { font-size: .83rem; }
+.guardian { padding: 1.1rem; border-radius: 14px; border: 1.5px dashed var(--green-500); display: grid; gap: 1rem; }
+.guardian[hidden] { display: none; }
+.guardian__title { margin: 0; display: flex; gap: .6rem; align-items: center; font-weight: 600; color: var(--heading); font-size: .93rem; }
+.guardian__title svg { width: 20px; height: 20px; color: var(--green-700); flex: none; }
+.apply__submit { display: grid; gap: .8rem; justify-items: start; }
+.apply__submit .btn { padding: 1rem 2rem; font-size: 1.02rem; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.app-no { font: 700 clamp(1.6rem, 4vw, 2.2rem) var(--font-mono); letter-spacing: .06em; color: var(--green-700); margin: .2rem 0 1rem; }
+:root:not([data-theme="dark"]) .apply .panel { border-color: #C5DAFF; }
+:root:not([data-theme="dark"]) .choice, :root:not([data-theme="dark"]) .consent__row { border-color: #c9dcff; }
+
+/* Print: keep just the application content */
+@media print {
+  .ribbon, .site-header, .site-footer, .mobile-donate, .to-top, .page-hero, .apply__aside, .mnav, .cta-band { display: none !important; }
+  body { background: #fff !important; color: #000; }
+  .apply { display: block; } .panel { box-shadow: none !important; border: 0 !important; }
+  .form-success .hero__actions { display: none !important; }
+}
+/* show the ribbon bar straight away (before the script fills it) so nothing jumps */
+html.has-ribbon .ribbon[hidden] { display: flex; }
+.page-apply .mobile-donate { display: none !important; }
+@media (max-width: 400px) {
+  .brand__name { font-size: 1.12rem; white-space: nowrap; }
+  .brand__tag { font-size: .6rem; white-space: nowrap; }
+  .brand { gap: .5rem; }
+  .header-cta { gap: .45rem; }
+  .theme-toggle, .menu-toggle { width: 40px; height: 40px; }
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Divya Foundation","foundingDate":"2006-01","email":"divyafoundation.nsk@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Shri. Ganesh Row Bungalow, No. 06, Ashoka-Marg, Near Siddhivinayak Park Building, Narayan Nagar, Nashik Road","addressLocality":"Nashik","postalCode":"422011","addressRegion":"Maharashtra","addressCountry":"IN"}}</script>
 </head>
 <body>
+<div class="ribbon" id="ribbon" role="region" aria-label="Announcements" hidden>
+  <div class="ribbon__viewport"><div class="ribbon__track"></div></div>
+  <button class="ribbon__close" type="button" aria-label="Hide announcements"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+</div>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container">
@@ -948,6 +1068,7 @@ img.brand__mark { width: 46px; height: 46px; border-radius: 50%; background: #ff
     </ul>
   </nav>
   <div class="mnav__foot">
+    <a class="btn btn--ghost" href="apply.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg> Apply for Support</a>
     <button class="btn" type="button" data-open-donate><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg> Donate Now</button>
     <div class="mnav__contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:divyafoundation.nsk@gmail.com">divyafoundation.nsk@gmail.com</a></div>
     <div class="mnav__contact"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg><a href="https://www.facebook.com/divya.trust.5" target="_blank" rel="noopener">Follow us on Facebook</a></div>
@@ -1066,6 +1187,7 @@ img.brand__mark { width: 46px; height: 46px; border-radius: 50%; background: #ff
           <li><a href="modus-operandi.html">Modus Operandi</a></li>
           <li><a href="get-involved.html">Volunteer with Us</a></li>
           <li><a href="events.html">Latest Events</a></li>
+          <li><a href="apply.html">Apply for Support</a></li>
           <li><a href="#donate" data-open-donate>Donate</a></li>
         </ul>
       </div>
@@ -1145,8 +1267,9 @@ document.addEventListener("DOMContentLoaded",function(){
  *      Getform) into FORM_ENDPOINT: submissions are POSTed there as JSON and
  *      the team receives them by email without the visitor leaving the page.
  */
-const FORM_ENDPOINT = "";
-const ORG_EMAIL = "divyafoundation.nsk@gmail.com";
+const CFG = window.DF_CONFIG || {};
+const FORM_ENDPOINT = CFG.formEndpoint || "";
+const ORG_EMAIL = CFG.orgEmail || "divyafoundation.nsk@gmail.com";
 
 document.documentElement.classList.remove("no-js");
 
@@ -1210,7 +1333,7 @@ document.documentElement.classList.remove("no-js");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
     reveals.forEach((el) => io.observe(el));
   } else reveals.forEach((el) => el.classList.add("is-in"));
 
@@ -1273,34 +1396,94 @@ document.documentElement.classList.remove("no-js");
   const validators = {
     name: (v) => v.trim().length >= 2 || "Please enter your full name.",
     phone: (v) => /^[6-9]\d{9}$/.test(v.replace(/[\s-]/g, "").replace(/^(\+?91)/, "")) || "Please enter a valid 10-digit mobile number.",
+    "phone-optional": (v) => v.trim() === "" || /^[6-9]\d{9}$/.test(v.replace(/[\s-]/g, "").replace(/^(\+?91)/, "")) || "Please enter a valid 10-digit mobile number.",
     email: (v) => v.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || "Please enter a valid email address.",
     "email-required": (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || "Please enter a valid email address.",
     message: (v) => v.trim().length >= 5 || "Please write a short message.",
+    required: (v) => v.trim().length > 0 || "This field is required.",
+    age: (v) => (/^\d{1,3}$/.test(v.trim()) && +v > 0 && +v < 121) || "Please enter age in years.",
+    need: (v) => v.trim().length >= 20 || "Please describe your need in a few sentences.",
+  };
+  const isActive = (el) => !el.closest("[hidden]") && !el.disabled;
+  const showErr = (field, msg) => {
+    const err = field?.querySelector(".field__error");
+    if (msg === true) { field?.classList.remove("has-error"); return true; }
+    field?.classList.add("has-error"); if (err) err.textContent = msg; return false;
   };
   const validateField = (input) => {
+    if (!isActive(input)) return true;
     const rule = validators[input.dataset.validate];
     if (!rule) return true;
     const res = rule(input.value);
-    const field = input.closest(".field");
-    const err = field?.querySelector(".field__error");
-    if (res === true) { field?.classList.remove("has-error"); input.removeAttribute("aria-invalid"); return true; }
-    field?.classList.add("has-error"); input.setAttribute("aria-invalid", "true");
-    if (err) err.textContent = res;
-    return false;
+    if (res === true) input.removeAttribute("aria-invalid"); else input.setAttribute("aria-invalid", "true");
+    return showErr(input.closest(".field"), res);
+  };
+  // groups: checkbox "at least one" and radio "choose one"
+  const validateGroup = (g) => {
+    if (!isActive(g)) return true;
+    const ok = $$("input", g).some((i) => i.checked);
+    if (!ok) g.setAttribute("aria-invalid", "true"); else g.removeAttribute("aria-invalid");
+    return showErr(g, ok ? true : (g.dataset.msg || "Please choose an option."));
+  };
+  const validateCheck = (c) => {
+    if (!isActive(c)) return true;
+    return showErr(c.closest(".field"), c.checked ? true : (c.dataset.msg || "Please tick this box to continue."));
+  };
+  const collect = (form) => {
+    const fd = new FormData(form), out = {};
+    for (const [k, v] of fd.entries()) {
+      if (k === "website") continue; // honeypot
+      const el = form.elements[k];
+      if (el && el instanceof Element ? el.closest("[hidden]") : false) continue;
+      out[k] = out[k] ? out[k] + ", " + v : v;
+    }
+    return out;
+  };
+  const appNumber = () => {
+    const d = new Date(), p = (n) => String(n).padStart(2, "0");
+    return `DF-${String(d.getFullYear()).slice(2)}${p(d.getMonth() + 1)}${p(d.getDate())}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
   };
 
   $$("form[data-form]").forEach((form) => {
     const inputs = $$("[data-validate]", form);
+    const groups = $$("[data-group]", form);
+    const checks = $$("[data-required-check]", form);
     inputs.forEach((i) => i.addEventListener("blur", () => validateField(i)));
     inputs.forEach((i) => i.addEventListener("input", () => { if (i.closest(".has-error")) validateField(i); }));
+    groups.forEach((g) => g.addEventListener("change", () => { if (g.classList.contains("has-error")) validateGroup(g); }));
+    checks.forEach((c) => c.addEventListener("change", () => validateCheck(c)));
+
+    // Application form: show guardian section for minors, and "other" text boxes
+    const age = form.elements["age"];
+    const guardian = $("[data-guardian]", form);
+    if (age && guardian) age.addEventListener("input", () => { guardian.hidden = !(+age.value > 0 && +age.value < 18); });
+    $$("[data-other-for]", form).forEach((box) => {
+      const src = form.querySelector(`input[value="${box.dataset.otherFor}"]`);
+      const sync = () => { box.hidden = !src.checked; };
+      src?.addEventListener("change", sync); sync();
+    });
+    $$("[data-copy-name]", form).forEach((t) => {
+      const from = form.elements[t.dataset.copyName];
+      from?.addEventListener("change", () => { if (!t.value) t.value = from.value; });
+    });
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const ok = inputs.map(validateField).every(Boolean);
-      if (!ok) { form.querySelector("[aria-invalid='true']")?.focus(); return; }
+      if (form.elements["website"]?.value) return; // bot
+      const ok = [...inputs.map(validateField), ...groups.map(validateGroup), ...checks.map(validateCheck)].every(Boolean);
+      if (!ok) {
+        const first = form.querySelector(".has-error");
+        first?.scrollIntoView({ behavior: "smooth", block: "center" });
+        (first?.querySelector("input, textarea, select") || first)?.focus({ preventScroll: true });
+        return;
+      }
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      const subject = form.dataset.subject || "Website enquiry";
+      const data = collect(form);
+      const isApp = form.dataset.form === "application";
+      const appNo = isApp ? appNumber() : "";
+      if (isApp) data.applicationNo = appNo;
+      data.submittedAt = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+      const subject = (form.dataset.subject || "Website enquiry") + (appNo ? ` (${appNo})` : "");
       const btn = form.querySelector("[type='submit']");
       const label = btn.innerHTML;
       btn.disabled = true; btn.textContent = "Sending…";
@@ -1308,23 +1491,26 @@ document.documentElement.classList.remove("no-js");
       let sent = false;
       if (FORM_ENDPOINT) {
         try {
-          const r = await fetch(FORM_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ _subject: subject, form: form.dataset.form, ...data }),
-          });
-          sent = r.ok;
+          // Google Apps Script accepts a simple form post; the response cannot be read (no-cors), so a network success counts as sent.
+          await fetch(FORM_ENDPOINT, { method: "POST", mode: "no-cors", body: new URLSearchParams({ form: form.dataset.form, ...data }) });
+          sent = true;
         } catch { sent = false; }
       }
       if (!sent) {
-        const lines = Object.entries(data).filter(([, v]) => v).map(([k, v]) => `${k[0].toUpperCase() + k.slice(1)}: ${v}`);
-        const href = `mailto:${ORG_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-        window.location.href = href;
+        const labelFor = (k) => form.querySelector(`[name="${k}"]`)?.dataset.label || (k[0].toUpperCase() + k.slice(1));
+        const lines = Object.entries(data).filter(([, v]) => v).map(([k, v]) => `${labelFor(k)}: ${v}`);
+        window.location.href = `mailto:${ORG_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
       }
       btn.disabled = false; btn.innerHTML = label;
       const success = form.parentElement.querySelector(".form-success");
-      if (success) { form.hidden = true; success.classList.add("is-visible"); success.focus?.(); }
+      if (success) {
+        $$("[data-app-no]", success).forEach((el) => (el.textContent = appNo));
+        form.hidden = true; success.classList.add("is-visible");
+        success.scrollIntoView({ behavior: "smooth", block: "start" }); success.focus?.({ preventScroll: true });
+      }
       form.reset();
+      $$("[data-other-for]", form).forEach((b) => (b.hidden = true));
+      if (guardian) guardian.hidden = true;
     });
   });
   $$("[data-reset-form]").forEach((b) => b.addEventListener("click", () => {
@@ -1332,8 +1518,30 @@ document.documentElement.classList.remove("no-js");
     wrap.querySelector("form").hidden = false;
     wrap.querySelector(".form-success").classList.remove("is-visible");
   }));
-  // Reset donate form whenever modal closes
-  modal?.addEventListener("transitionend", () => {});
+  $$("[data-print]").forEach((b) => b.addEventListener("click", () => window.print()));
+
+  /* ---------- Announcement ribbon (content comes from site-config.js) ---------- */
+  const ribbon = $("#ribbon");
+  const items = (CFG.announcements || []).filter((a) => a && a.text);
+  let dismissed = false; try { dismissed = sessionStorage.getItem("df-ribbon-closed") === "1"; } catch (err) {}
+  if (ribbon && items.length && !dismissed) {
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const one = items.map((a) => {
+      const inner = `${a.label ? `<b>${esc(a.label)}</b>` : ""}<span>${esc(a.text)}</span>${a.link ? '<i aria-hidden="true">→</i>' : ""}`;
+      return a.link ? `<a class="ribbon__item" href="${esc(a.link)}">${inner}</a>` : `<span class="ribbon__item">${inner}</span>`;
+    }).join('<span class="ribbon__sep" aria-hidden="true">✦</span>');
+    const track = $(".ribbon__track", ribbon);
+    track.innerHTML = `<div class="ribbon__group">${one}<span class="ribbon__sep" aria-hidden="true">✦</span></div>` +
+      `<div class="ribbon__group" aria-hidden="true">${one.replace(/<a /g, '<a tabindex="-1" ')}<span class="ribbon__sep">✦</span></div>`;
+    const speed = Math.max(24, items.reduce((n, a) => n + (a.text + (a.label || "")).length, 0) * 0.32);
+    track.style.setProperty("--ribbon-speed", speed + "s");
+    ribbon.hidden = false;
+    document.documentElement.classList.add("has-ribbon");
+    $(".ribbon__close", ribbon)?.addEventListener("click", () => {
+      ribbon.hidden = true; document.documentElement.classList.remove("has-ribbon");
+      try { sessionStorage.setItem("df-ribbon-closed", "1"); } catch (err) {}
+    });
+  } else document.documentElement.classList.remove("has-ribbon");
 
   /* ---------- Lightbox ---------- */
   const lb = $("#lightbox");
